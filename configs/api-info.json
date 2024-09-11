@@ -1,6 +1,6 @@
 {
     "baseUrl" : "https://api.openweathermap.org/data/2.5/weather",
-    "apiKey" : "828c36c2a6c47bd3d2753f078787d2ac",
+    "apiKey" : "828c36c2a6c47bd3d2753f078787d2ac", 
     "typeMetrics" : ["metric", "standard"],
     "types" : [
         {

@@ -1,5 +1,3 @@
-// Отображение данных
-
 class WeatherView {
     constructor(){
         this.app = this.getElement('.card');
@@ -15,6 +13,14 @@ class WeatherView {
         this.wind = this.getElement(".wind");
 
         this.weatherImg = this.getElement(".weather-icon");
+        this.displayMode = [
+            { elem: this.getElement('.settings'), originalDisplay: window.getComputedStyle(this.getElement('.settings')).display },
+            { elem: this.getElement('.weather'), originalDisplay: window.getComputedStyle(this.getElement('.weather')).display }
+        ];
+        this.error = this.getElement(".error-status");
+        
+        this.displayMainWeatherPanel(false);
+        this.displayErrorWeatherText(false);
     }
 
     get _cityName(){
@@ -23,6 +29,10 @@ class WeatherView {
 
     getElement(selectors){
         return document.querySelector(selectors);
+    }
+
+    getAllElements(selectors){
+        return document.querySelectorAll(selectors);
     }
 
     _removeClass(element, selectorClass) {
@@ -80,5 +90,15 @@ class WeatherView {
         if (this.weatherImg) {
             this.weatherImg.src = imgSrc;
         }
+    }
+
+    displayMainWeatherPanel(flag) {
+        this.displayMode.forEach(item => {
+            item.elem.style.display = flag ? item.originalDisplay : "none";
+        });
+    }
+
+    displayErrorWeatherText(flag){
+        this.error.style.display = flag ? "block" : "none";
     }
 }

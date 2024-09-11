@@ -12,10 +12,13 @@
             <input type="text" placeholder="Введите название города" spellcheck="false">
             <button><img src="/images/search.png" alt="search bar icon"></button>
         </div>
-        <div class="settings">
+        <div class="error-status">
+            <span>Такого города не существует</span>
+        </div>
+        <div class="settings display-mode">
             <span id="degrees-id" class="select-settings" data-type="deg">Отображать в °C</span><span id="fahrenheit-id" data-type="frn">Отображать в °F</span>
         </div>
-        <div class="weather">
+        <div class="weather display-mode">
             <img src="/images/mist.png" class="weather-icon" alt="weather status icon">
             <h1 class="temperature">18°C</h1>
             <h2 class="city">Москва</h2>

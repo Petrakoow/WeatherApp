@@ -1,5 +1,3 @@
-// принимает запросы от пользователя и обращается к модели
-
 class WeatherController {
     constructor(model, view) {
         this.model = model;
@@ -17,9 +15,13 @@ class WeatherController {
             const weatherData = await this.model.fetchWeatherData(cityName);
             const weatherMetric = this.model._currentTypeMetric;
             this.handleWeatherData(weatherData, weatherMetric);
+            this.view.displayMainWeatherPanel(true);
+            this.view.displayErrorWeatherText(false);
 
         } catch (error) {
             console.error("Ошибка при получении данных о погоде:", error);
+            this.view.displayMainWeatherPanel(false);
+            this.view.displayErrorWeatherText(true);
         }
     }
 

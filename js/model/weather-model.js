@@ -1,5 +1,3 @@
-// Бизнес логика
-
 class WeatherModel {
     constructor(allSettings){
         this.apiData = {

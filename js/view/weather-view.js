@@ -2,20 +2,58 @@
 
 class WeatherView {
     constructor(){
-        this.app = this.getElement('#card');
+        this.app = this.getElement('.card');
+        this.degrees = this.getElement('#degrees-id');
+        this.fahrenheit = this.getElement('#fahrenheit-id');
+        
+        this.input = this.getElement(".search input");
+
+        this.city = this.getElement(".city");
+        this.temp = this.getElement(".temperature");
+        this.humidity = this.getElement(".humidity");
+        this.wind = this.getElement(".wind");
+    }
+
+    get _cityName(){
+        return this.input.value;
     }
 
     getElement(selectors){
         return document.querySelector(selectors);
     }
 
-    deleteClass(selectorClass){
-        const element = this.getElement('#select-setting');
+    _removeClass(element, selectorClass) {
         element.classList.remove(selectorClass);
     }
 
-    addClass(selectorClass){
-        const element = this.getElement('#select-setting');
+    _addClass(element, selectorClass) {
         element.classList.add(selectorClass);
+    }
+
+    _hasClass(element, selectorClass) {
+        return element.classList.contains(selectorClass);
+    }
+
+    bindChangeSettingsMetrics(handler){
+        if (!this.degrees || !this.fahrenheit){
+            console.error("Не все необходимые элементы инициализированы");
+            return;
+        }
+        const toggleClass = (activeElement, inactiveElement, className) => {
+            if (!this._hasClass(activeElement, className)){
+                this._addClass(activeElement, className);
+                this._removeClass(inactiveElement, className);
+                handler(activeElement.getAttribute('data-type'));
+            } else {
+                this._removeClass(inactiveElement, className);
+            }
+        };
+
+        this.degrees.addEventListener('click', () => {
+            toggleClass(this.degrees, this.fahrenheit, 'select-settings')
+        });
+        this.fahrenheit.addEventListener('click', () => {
+            toggleClass(this.fahrenheit, this.degrees, 'select-settings')
+        });
     }
 }

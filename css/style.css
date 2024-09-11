@@ -11,7 +11,7 @@ body{
     background: #222;
 }
 
-#card{
+.card{
     width: 90%;
     max-width: 600px;
     min-width: 470px;

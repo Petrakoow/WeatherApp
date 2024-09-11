@@ -7,11 +7,14 @@ class WeatherView {
         this.fahrenheit = this.getElement('#fahrenheit-id');
         
         this.input = this.getElement(".search input");
+        this.btn = this.getElement(".search button");
 
         this.city = this.getElement(".city");
         this.temp = this.getElement(".temperature");
         this.humidity = this.getElement(".humidity");
         this.wind = this.getElement(".wind");
+
+        this.weatherImg = this.getElement(".weather-icon");
     }
 
     get _cityName(){
@@ -55,5 +58,27 @@ class WeatherView {
         this.fahrenheit.addEventListener('click', () => {
             toggleClass(this.fahrenheit, this.degrees, 'select-settings')
         });
+    }
+
+    bindSearchWeather(handler){
+        if (!this.btn || !this.input){
+            console.error("Не все необходимые элементы инициализированы");
+            return;
+        }
+
+        this.btn.addEventListener('click', () => {
+            handler(this._cityName);
+        });
+    }
+
+    displayNewInformationAboutWeather(jsonData, imgSrc) {
+        this.city.innerHTML = jsonData.name;
+        this.temp.innerHTML = Math.round(jsonData.main.temp) + "°C";
+        this.humidity.innerHTML = jsonData.main.humidity + "%";
+        this.wind.innerHTML = jsonData.wind.speed + " км/ч";
+
+        if (this.weatherImg) {
+            this.weatherImg.src = imgSrc;
+        }
     }
 }

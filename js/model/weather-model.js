@@ -1,18 +1,22 @@
 // Бизнес логика
 
 class WeatherModel {
-    constructor(baseUrl, apiKey, allSettings){
+    constructor(allSettings){
         this.apiData = {
-            url : baseUrl, 
-            api: apiKey
+            url : allSettings.baseUrl, 
+            key: allSettings.apiKey
         };
         this.allSettings = allSettings.typeMetrics;
         this.currSettingParam = allSettings.typeMetrics[0];
         this.allStatesWeather = allSettings.types;
     }
 
+    get _currentTypeMetric(){
+        return this.currSettingParam;
+    }
+
     getApiUrl(cityName) {
-        return `${this.apiData.url}?q=${cityName}&appid=${this.apiData.apiKey}&units=${this.currSettingParam}`;
+        return `${this.apiData.url}?q=${cityName}&appid=${this.apiData.key}&units=${this.currSettingParam}`;
     }
 
     getCurrentPathImg(weatherType){
@@ -38,7 +42,7 @@ class WeatherModel {
     async fetchWeatherData(cityName) {
         const url = this.getApiUrl(cityName);
         const response = await fetch(url);
-
+        
         if (!response.ok) {
             console.error("Ошибка при запросе к API");
             throw new Error("Ошибка при запросе к API");

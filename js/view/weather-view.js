@@ -71,11 +71,11 @@ class WeatherView {
         });
     }
 
-    displayNewInformationAboutWeather(jsonData, imgSrc) {
+    displayNewInformationAboutWeather(metric, jsonData, imgSrc) {
         this.city.innerHTML = jsonData.name;
-        this.temp.innerHTML = Math.round(jsonData.main.temp) + "°C";
-        this.humidity.innerHTML = jsonData.main.humidity + "%";
-        this.wind.innerHTML = jsonData.wind.speed + " км/ч";
+        this.temp.innerHTML = `${Math.round(jsonData.main.temp)}${metric === 'standard' ? '°F' : '°C'}`;
+        this.humidity.innerHTML = `${jsonData.main.humidity} %`;
+        this.wind.innerHTML = `${jsonData.wind.speed} км/ч`;
 
         if (this.weatherImg) {
             this.weatherImg.src = imgSrc;

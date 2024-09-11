@@ -15,15 +15,17 @@ class WeatherController {
     async handleSearchWeatherByCity(cityName) {
         try {
             const weatherData = await this.model.fetchWeatherData(cityName);
-            this.handleWeatherData(weatherData);
+            const weatherMetric = this.model._currentTypeMetric;
+            this.handleWeatherData(weatherData, weatherMetric);
+
         } catch (error) {
             console.error("Ошибка при получении данных о погоде:", error);
         }
     }
 
-    handleWeatherData(weatherData) {
+    handleWeatherData(weatherData, weatherMetric) {
         const weatherType = weatherData.weather[0].main;
         const imgSrc = this.model.getCurrentPathImg(weatherType);
-        this.view.displayNewInformationAboutWeather(weatherData, imgSrc);
+        this.view.displayNewInformationAboutWeather(weatherMetric, weatherData, imgSrc);
     }
 }

@@ -7,10 +7,13 @@
     <title>Weather App</title>
 </head>
 <body>
-    <div class="card">
+    <div id="card">
         <div class="search">
             <input type="text" placeholder="Введите название города" spellcheck="false">
             <button><img src="/images/search.png" alt="search bar icon"></button>
+        </div>
+        <div class="settings">
+            <span id="degrees-id" class="select-setting">Отображать в °C</span><span id="fahrenheit-id">Отображать в °F</span>
         </div>
         <div class="weather">
             <img src="/images/mist.png" class="weather-icon" alt="weather status icon">

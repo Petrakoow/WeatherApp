@@ -11,7 +11,7 @@ body{
     background: #222;
 }
 
-.card{
+#card{
     width: 90%;
     max-width: 600px;
     min-width: 470px;
@@ -58,6 +58,27 @@ body{
     width: 16px;
 }
 
+.settings{
+    display: flex;
+    justify-content: left;
+    gap: 20px;
+    padding: 10px 0px;
+}
+
+.settings span{
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 15px;
+    background: #ebfffc;
+    color: #555555;
+    border-radius: 20px;
+}
+
+.settings .select-setting{
+    background: #db1578;
+    color: #fff;
+}
+
 .weather-icon{
     width: 170px;
     margin-top: 30px;
@@ -97,3 +118,4 @@ body{
     font-size: 28px;
     margin-top: -6px;
 }
+

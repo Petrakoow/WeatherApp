@@ -1,2 +1,17 @@
-# WeatherApp
- Weather App is a user-friendly website offering real-time weather updates. Users can quickly view the current day's conditions, including temperature, humidity, and wind speed. With a clean interface and accurate data from a weather API, it ensures a smooth experience for daily planning.
+# WeatherApp (Mini pet project)
+
+**Petrakov Egor**
+
+**WeatherApp** — это удобный веб-сайт, предоставляющий актуальные данные о погоде в реальном времени. Пользователи могут быстро узнать текущие условия, включая температуру, влажность и скорость ветра. Благодаря чистому интерфейсу и точной информации, получаемой из погодного API, приложение обеспечивает комфортное использование и помогает планировать день.
+
+## Серия небольших проектов, посвященных изучению JavaScript
+
+### Проект №1:
+
+- Основное внимание уделяется изучению синтаксиса JavaScript и практике программирования
+- Изучение и анализ архитектуры MVC (Model-View-Controller)
+- Работа с внешними API для получения данных о погоде
+- Реализация интерактивного интерфейса с использованием событий и динамического обновления данных
+
+**WeatherApp** — это первый проект в серии, направленный на углубление знаний и освоение ключевых концепций языка JavaScript, с акцентом на разработку веб-приложений.
+
